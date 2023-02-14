@@ -6,23 +6,40 @@
 //
 
 import Foundation
+import UIKit
 
+/*
+struct ResponseModel1: Codable {
+    let status: String
+    let totalResults: Int
+    let articles: [[String: [News]]]
+    
+    enum CodingKeys: String, CodingKey {
+        case status, totalResults
+        case articles = "articles"
+    }
+    
+}
+ */
 
-struct News: Decodable {
+struct News: Codable {
     let author: String?
     let title: String?
     let description: String?
     let url: String?
     let urlToImage: String?
+    
+//    enum CodingKeys: String, CodingKey {
+//        case author, title, description, url, urlToImage
+//    }
 
     init?(json: [String: Any]){
-    
+        
                 let author = json["author"] as? String
                 let title = json["title"] as? String
                 let description = json["description"] as? String
                 let url = json["url"] as? String
                 let urlToImage = json["urlToImage"] as? String
-        //else { return nil }
         
         self.author = author
         self.title = title
@@ -35,5 +52,6 @@ struct News: Decodable {
        guard let jsonArray = jsonArray as? Array<[String: Any]> else { return nil }
         return jsonArray.compactMap { News(json: $0) }
     }
+    
 }
 
