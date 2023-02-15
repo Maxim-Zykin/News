@@ -22,6 +22,10 @@ struct ResponseModel1: Codable {
 }
  */
 
+struct Article: Codable {
+    let articles: [News]
+}
+
 struct News: Codable {
     let author: String?
     let title: String?
@@ -29,18 +33,14 @@ struct News: Codable {
     let url: String?
     let urlToImage: String?
     
-//    enum CodingKeys: String, CodingKey {
-//        case author, title, description, url, urlToImage
-//    }
-
     init?(json: [String: Any]){
-        
+
                 let author = json["author"] as? String
                 let title = json["title"] as? String
                 let description = json["description"] as? String
                 let url = json["url"] as? String
                 let urlToImage = json["urlToImage"] as? String
-        
+
         self.author = author
         self.title = title
         self.description = description

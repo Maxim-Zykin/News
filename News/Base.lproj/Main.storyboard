@@ -3,11 +3,12 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News Table View Controller-->
+        <!--NEWS-->
         <scene sceneID="5yF-lX-pUV">
             <objects>
                 <tableViewController id="i2d-PH-LsF" customClass="NewsTableViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,19 +56,56 @@
                             <outlet property="delegate" destination="i2d-PH-LsF" id="PuS-Fg-ayD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="WE7-LG-UYu"/>
+                    <navigationItem key="navigationItem" title="NEWS" id="WE7-LG-UYu"/>
+                    <connections>
+                        <segue destination="TJl-yP-OKB" kind="show" identifier="Description" id="M4Q-oo-wLh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBP-Lz-Vpg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1130.534351145038" y="41.549295774647888"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="y4v-uO-flE">
+            <objects>
+                <viewController id="TJl-yP-OKB" customClass="WebViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DyP-R2-6HF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0in-ZV-VKk">
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DIg-1S-ysd">
+                                <rect key="frame" x="0.0" y="155" width="393" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gzK-ZR-qRG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uer-Qi-Buj"/>
+                    <connections>
+                        <outlet property="progressView" destination="DIg-1S-ysd" id="COj-Xm-Tc1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="COL-cx-rld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962.5954198473282" y="41.549295774647888"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yb4-wB-PDJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z0k-gN-yYl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rjq-3k-RCO">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Rjq-3k-RCO">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
