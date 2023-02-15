@@ -93,6 +93,7 @@
                     <navigationItem key="navigationItem" id="uer-Qi-Buj"/>
                     <connections>
                         <outlet property="progressView" destination="DIg-1S-ysd" id="COj-Xm-Tc1"/>
+                        <outlet property="webView" destination="0in-ZV-VKk" id="ygz-wv-xab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COL-cx-rld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

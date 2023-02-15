@@ -8,20 +8,6 @@
 import Foundation
 import UIKit
 
-/*
-struct ResponseModel1: Codable {
-    let status: String
-    let totalResults: Int
-    let articles: [[String: [News]]]
-    
-    enum CodingKeys: String, CodingKey {
-        case status, totalResults
-        case articles = "articles"
-    }
-    
-}
- */
-
 struct Article: Codable {
     let articles: [News]
 }
