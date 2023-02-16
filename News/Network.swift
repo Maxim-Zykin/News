@@ -30,17 +30,3 @@ class NetworkNews {
 
 }
 
-/*
- AF.request(url, method: .get).validate().responseJSON { (response) in
-
-     switch response.result {
-     case .success(let value):
-        var news = [News]()
-         news = News.getArray(from: value)!
-         completion(news)
-
-     case .failure(let error):
-         print(error)
-     }
- }
- */
