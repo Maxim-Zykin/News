@@ -9,7 +9,10 @@ import UIKit
 
 class NewsTableViewController: UITableViewController {
     
-    let url = "https://newsapi.org/v2/everything?q=apple&sortBy=popularity&apiKey=377c14cfbdd24dab93f00f8efa5c7ebc"
+    //let url = "https://newsapi.org/v2/everything?q=apple&sortBy=popularity&apiKey=377c14cfbdd24dab93f00f8efa5c7ebc"
+    
+    var newsAPI = ""
+
     private var newsURL: String?
     private var newsTitle: String?
     
@@ -36,15 +39,16 @@ class NewsTableViewController: UITableViewController {
     
     func fetchData() {
         Task {
-           await NetworkNews.dataNews(newsAPI: url) { news in
-                self.news = news
-                DispatchQueue.main.async {
+           await NetworkNews.dataNews(newsAPI: newsAPI) { [weak self] news in
+               guard let self = self else { return }
+               self.news = news
+                DispatchQueue.main.async { 
                     self.tableView.reloadData()
                 }
             }
         }
     }
-    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let webViewController = segue.destination as! WebViewController
         webViewController.selectedNews = newsTitle
@@ -53,7 +57,6 @@ class NewsTableViewController: UITableViewController {
             webViewController.newsURL = url
         }
     }
-
 }
 
 
