@@ -10,10 +10,8 @@ import UIKit
 class NewsCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     
-    @IBOutlet weak var viewCollection: UIView!
     
     func viewDidLoad() {
         viewDidLoad()
-        viewCollection.layer.cornerRadius = 10
     }
 }
