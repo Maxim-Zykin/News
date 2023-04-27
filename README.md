@@ -7,4 +7,4 @@
 
 # Screenshots
 
-![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+![Image alt](https://github.com/Maxim-Zykin/News/blob/main/news_menu.png)
